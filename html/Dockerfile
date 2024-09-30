@@ -6,7 +6,7 @@ ENV TZ=Europe/London
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Update and install needed packages
-RUN apt-get update && apt-get install -y nginx php-fpm8.3 php-mysql
+RUN apt-get update && apt-get install -y nginx php8.3-fpm php-mysql
 
 # Create the /var/www/html directory and set permissions
 RUN mkdir -p /var/www/html && chmod -R 755 /var/www/html
