@@ -26,7 +26,7 @@ EXPOSE 80
 ENV PATH=$PATH:/usr/sbin
 
 # Run PHP-FPM in the background
-CMD ["php-fpm8.3", "-F", "-R"]
+CMD ["php-fpm8.3", "-R"]
 
 # Run Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
