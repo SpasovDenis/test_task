@@ -13,6 +13,6 @@ RUN chmod -R 755 /var/www/html
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN rm -f /etc/nginx/sites-enabled/default && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
-EXPOSE 80
+EXPOSE 9000
 
 CMD ["nginx", "-g", "daemon off;"]
