@@ -6,7 +6,7 @@ ENV TZ=Europe/London
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Update and install needed packages
-RUN apt-get update && apt-get install -y nginx php-fpm php-mysql
+RUN apt-get update && apt-get install -y nginx php-fpm8.3 php-mysql
 
 # Create the /var/www/html directory and set permissions
 RUN mkdir -p /var/www/html && chmod -R 755 /var/www/html
@@ -26,7 +26,7 @@ EXPOSE 80
 ENV PATH=$PATH:/usr/sbin
 
 # Run PHP-FPM in the background
-CMD ["php-fpm7.2", "-F", "-R"]
+CMD ["php-fpm8.3", "-F", "-R"]
 
 # Run Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
