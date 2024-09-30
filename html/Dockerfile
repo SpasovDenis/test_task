@@ -1,30 +1,33 @@
-# Use an official Ubuntu image as a base
+# Используем официальный образ Ubuntu в качестве основы
 FROM ubuntu:latest
 
-# Set the timezone
+# Установка часового пояса
 ENV TZ=Europe/London
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# Update and install needed packages
-RUN apt-get update && apt-get install -y nginx php8.3-fpm php-mysql
+# Обновление и установка необходимых пакетов
+RUN apt-get update && apt-get install -y nginx php8.3-fpm php-mysql supervisor
 
-# Create the /var/www/html directory and set permissions
+# Создание директории /var/www/html и установка прав доступа
 RUN mkdir -p /var/www/html && chmod -R 755 /var/www/html
 
-# Copy the current directory contents into the container at /var/www/html
+# Копирование текущего содержимого директории в контейнер в /var/www/html
 COPY . /var/www/html
 
-# Copy the nginx configuration file
+# Копирование файла конфигурации Nginx
 COPY nginx.conf /etc/nginx/sites-available/default
 
-# Create a symbolic link to enable the nginx configuration
+# Создание символической ссылки для включения конфигурации Nginx
 RUN rm -f /etc/nginx/sites-enabled/default && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
-# Expose port 80
+# Экспорт порта 80
 EXPOSE 80
 
 ENV PATH=$PATH:/usr/sbin
 
-# Run PHP-FPM in the background
-CMD ["sh", "-c", "php-fpm8.3 -R && nginx -g daemon off;"]
+# Создание файла конфигурации supervisord
+COPY supervisord.conf /etc/supervisord.conf
+
+# Запуск supervisord в фоне
+CMD ["supervisord", "-n"]
 
