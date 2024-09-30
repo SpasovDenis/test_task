@@ -23,6 +23,8 @@ RUN rm -f /etc/nginx/sites-enabled/default && ln -s /etc/nginx/sites-available/d
 # Expose port 80
 EXPOSE 80
 
+ENV PATH=$PATH:/usr/sbin
+
 # Run PHP-FPM in the background
 CMD ["php-fpm7.2", "-F", "-R"]
 
