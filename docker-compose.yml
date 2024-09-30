@@ -12,6 +12,8 @@ services:
       - ./html:/var/www/html
     depends_on:
       - db
+    networks:
+      - default
 
   db:
     image: mysql:8.0.33
@@ -19,13 +21,12 @@ services:
       - .env
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - default
 
 volumes:
   db_data: {}
 
 networks:
-  custom_network:
+  default:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
