@@ -66,7 +66,7 @@
 <?php
 require_once('db.php');
 
-$link = mysqli_connect('db','root','kalikali','my_site_database');
+$link = mysqli_connect('db','root','ansible','my_site_database');
 
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
