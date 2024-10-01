@@ -37,7 +37,7 @@ if (isset($_COOKIE['User'])) {
     header("Location: login.php");
 }
 
-$link = mysqli_connect('db','root','kalikali','my_site_database');
+$link = mysqli_connect('db','root','ansible','my_site_database');
  
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
