@@ -1,7 +1,7 @@
 <?php
 $servername = "db";
 $username = "root";
-$password = "kalikali";
+$password = "ansible";
 $dbName = "my_site_database";
 
 $link = mysqli_connect($servername, $username, $password);
