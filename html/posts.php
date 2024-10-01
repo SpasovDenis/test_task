@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect('db','root','kalikali','my_site_database');
+$link = mysqli_connect('db','root','ansible','my_site_database');
 $id = $_GET['id'];
 $sql = "SELECT * FROM posts WHERE id=$id";
 $res = mysqli_query($link, $sql);
