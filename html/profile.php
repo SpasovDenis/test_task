@@ -14,7 +14,7 @@
         <div class="row">
             <div class="row">
                 <div class="col-3 nav_logo"></div>
-                <div class="nav_text">Информация обо мне)</div>
+                <div class="nav_text">Welcome!</div>
             </div>
         </div>
     </div>
@@ -26,11 +26,11 @@
 	    </div>
         <div class="row">
             <div class="col-8">
-                <h2>Я Спасов Денис Александрович, окончил бакалавриат КФУ по направлению физика и проучившись 1 семестр в магистратуре взял академ и решил попробовать себя в PT START! Люблю различные виды спорта, сериалы и много всего еще)) P.S.:сорри за кринжовую фотку))</h2>
+                <h2>Я Спасов Денис Александрович</h2>
             </div>
             <div class="col-4">
                 <div class="row my_photo"></div>
-                <div class="row"><p>Спасов Денис Александрович</p></div>
+                <div class="row"><p></p></div>
         </div>
     </div>
     <div class="container">
