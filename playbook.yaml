@@ -1,0 +1,33 @@
+---
+- name: Deploy dockerized web application
+  hosts: remote_server
+  become: true
+
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install Docker-Compose
+      apt:
+        name: docker-compose
+        state: present
+
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+
+    - name: Clone Git repository
+      git:
+        repo: 'https://github.com/SpasovDenis/test_task'
+        dest: /opt/test_task
+        version: main
+  # Клонирование репозитория Git
+
+    - name: Start docker-compose
+      command: docker-compose up -d
+      args:
+        chdir: /opt/test_task
+  # Запуск docker-compose
